@@ -10,24 +10,18 @@
 set t_Co=256 " 256 colours
 set background=dark
 colorscheme molokai
+
+" handle tmux colours
 if exists('$TMUX')
-  " colorscheme railscasts
-  syntax on
-  set cursorline
+  colorscheme railscasts
   highlight Normal ctermbg=59
   highlight CursorLine ctermbg=darkblue cterm=bold ctermfg=white
 else
   highlight CursorLine cterm=bold ctermbg=235 ctermfg=none
 endif
-" let g:base16_shell_path=base16-builder/output/shell
 
 " highlight current line
 set cursorline
-" colorscheme molokai
-" set cursorcolumn
-" highlight CursorLine ctermbg=233 cterm=bold ctermfg=white
-" hi Normal ctermbg=none
-" hi NonText ctermbg=black
 
 " toggle nested code blocks
 set foldenable
