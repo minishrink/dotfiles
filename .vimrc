@@ -1,6 +1,6 @@
-                " --------------
-                "  vimrc config
-                " --------------
+" --------------
+"  vimrc config
+" --------------
 
 " ---------------
 "   appearance
@@ -9,7 +9,7 @@
 " Colour schemes
 set t_Co=256 " 256 colours
 set background=dark
-colorscheme molokai
+colorscheme railscasts
 
 " highlight current line
 set cursorline
@@ -56,7 +56,7 @@ set noswapfile
 let g:opam_share_dir = substitute(system('opam config var share'),'\n$','','''')
 let g:ocaml_ocp_indent = g:opam_share_dir . "/ocp-indent/vim"
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-"
+
 let g:ocaml_has_ocpindent = 1
 execute "set rtp+=" . g:ocaml_ocp_indent
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
@@ -74,12 +74,15 @@ Plug 'ntpeters/vim-better-whitespace'
 " Syntax checking and linting that works with OCaml, Python, bash, ...
 Plug 'w0rp/ale'
 
-call plug#end()
+" get some snazzy colour schemes
+Plug 'rafi/awesome-vim-colorschemes'
 
+call plug#end()
 
 "   ------------------------------
 " "      ALE configuration
 " " ------------------------------
+"
 " Don't run linters as I type
 let g:ale_lint_on_text_changed = 'never'
 " Don't run linters when opening a file to avoid hangs when opening large OCaml files
