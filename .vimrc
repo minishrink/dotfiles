@@ -1,24 +1,15 @@
-" **************
-"  vimrc config
-" **************
+                " --------------
+                "  vimrc config
+                " --------------
 
-" ***************
+" ---------------
 "   appearance
-" ***************
+" ---------------
 "
 " Colour schemes
 set t_Co=256 " 256 colours
 set background=dark
 colorscheme molokai
-
-" handle tmux colours
-if exists('$TMUX')
-  colorscheme railscasts
-  highlight Normal ctermbg=59
-  highlight CursorLine ctermbg=darkblue cterm=bold ctermfg=white
-else
-  highlight CursorLine cterm=bold ctermbg=235 ctermfg=none
-endif
 
 " highlight current line
 set cursorline
@@ -52,17 +43,15 @@ set smartcase
 " Make more context visible around the cursor when scrolling
 set scrolloff=7
 
-" syntax
-" syntax enable
-
 " remap :redo to ctrl+r
 nmap redo <C-r>
 
 " stop setting .swp file backups
 set noswapfile
-" ********************
-"  ocaml plugins
-" ********************
+
+" --------------------
+"    ocaml plugins
+" --------------------
 
 let g:opam_share_dir = substitute(system('opam config var share'),'\n$','','''')
 let g:ocaml_ocp_indent = g:opam_share_dir . "/ocp-indent/vim"
@@ -73,13 +62,11 @@ execute "set rtp+=" . g:ocaml_ocp_indent
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
 set rtp^="/home/akanksha/.opam/system/share/ocp-indent/vim"
 
-" *****************
-" vim-plug
-" *****************
+" -----------------
+"    vim-plug
+" -----------------
+"
 call plug#begin('~/.vim/plugged')
-
-" OCaml
-Plug 'rgrinberg/vim-ocaml'
 
 " Plugin for removing trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
@@ -90,9 +77,9 @@ Plug 'w0rp/ale'
 call plug#end()
 
 
-" ******************************
-" " ALE configuration
-" " ******************************
+"   ------------------------------
+" "      ALE configuration
+" " ------------------------------
 " Don't run linters as I type
 let g:ale_lint_on_text_changed = 'never'
 " Don't run linters when opening a file to avoid hangs when opening large OCaml files
