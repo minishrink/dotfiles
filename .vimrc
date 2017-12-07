@@ -8,6 +8,7 @@
 " true colour
 set t_Co=16
 set background=dark
+
 " colourscheme
 colorscheme railscasts
 " airline theme for tabline
@@ -16,23 +17,26 @@ let g:airline_theme='jellybeans'
 " highlight current line
 set cursorline
 
+" number lines
+set number
+
+" title of file
+set title
+
+" set automatic whitespace stripping
+autocmd BufEnter * EnableStripWhitespaceOnSave
+
 " toggle nested code blocks
 set foldenable
 set foldmethod=indent
 set foldlevelstart=20
 set foldnestmax=10
 
-" number lines
-set number
-
 " set tab width
 set tabstop=2
 set shiftwidth=2
 set smarttab
 set expandtab
-
-" title of file
-set title
 
 " show matching parentheses
 set showmatch
