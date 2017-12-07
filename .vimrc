@@ -5,11 +5,13 @@
 " ---------------
 "   appearance
 " ---------------
-"
-" Colour schemes
+" true colour
 set t_Co=16
 set background=dark
+" colourscheme
 colorscheme railscasts
+" airline theme for tabline
+let g:airline_theme='jellybeans'
 
 " highlight current line
 set cursorline
