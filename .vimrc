@@ -7,7 +7,7 @@
 " ---------------
 "
 " Colour schemes
-set t_Co=256 " 256 colours
+set t_Co=16
 set background=dark
 colorscheme railscasts
 
@@ -77,12 +77,17 @@ Plug 'w0rp/ale'
 " get some snazzy colour schemes
 Plug 'rafi/awesome-vim-colorschemes'
 
+" enable coloured tabs at bottom
+Plug 'vim-airline/vim-airline'
+
+" enable themes for airline tabs
+Plug 'vim-airline/vim-airline-themes'
+
 call plug#end()
 
 "   ------------------------------
 " "      ALE configuration
 " " ------------------------------
-"
 " Don't run linters as I type
 let g:ale_lint_on_text_changed = 'never'
 " Don't run linters when opening a file to avoid hangs when opening large OCaml files
