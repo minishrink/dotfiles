@@ -11,4 +11,4 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 curl -o ~/.vimrc "https://raw.githubusercontent.com/minishrink/dotfiles/master/.vimrc"
 
 # install plugins and set my colourscheme
-vim -c ':w' -c ':so %' -c 'PlugInstall' -c ':colo minimalist' ~/.vimrc
+vim -c ':w' -c ':so %' -c 'PlugInstall' -c ':colo minimalist' -c ':wq' ~/.vimrc
