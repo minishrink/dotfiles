@@ -89,6 +89,8 @@ Plug 'vim-airline/vim-airline'
 " enable themes for airline tabs
 Plug 'vim-airline/vim-airline-themes'
 
+" enable fuzzy file finding
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 "   ------------------------------
