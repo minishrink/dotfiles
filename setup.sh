@@ -17,5 +17,3 @@ cp .vimrc ~/.vimrc
 # install plugins and set my colourscheme
 vim -c ':w' -c ':so %' -c 'PlugInstall' -c ':colo minimalist' -c ':wq' ~/.vimrc
 
-# use my fucking colourscheme
-echo alias vim="vim -c ':colo minimalist'" >> ~/.bash_aliases && source ~/.bash_aliases
