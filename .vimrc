@@ -1,16 +1,14 @@
 " --------------
-"  vimrc config
+"   v i m r c
 " --------------
 
 " ---------------
 "   appearance
 " ---------------
+
 " true colour
 set t_Co=16
-set background=dark
 
-" colourscheme
-colorscheme railscasts
 " airline theme for tabline
 let g:airline_theme='jellybeans'
 
@@ -42,36 +40,46 @@ set expandtab
 set showmatch
 " highlight matching search terms
 set hlsearch
-" ignore case unless capital letters included
+" ignore case
 set ignorecase
+" unless capital letters included
 set smartcase
 
-" Make more context visible around the cursor when scrolling
-set scrolloff=7
+" start scrolling 5 lines away from top/bottom
+set scrolloff=5
 
-" remap :redo to ctrl+r
+" remap some commands
 nmap redo <C-r>
 
 " stop setting .swp file backups
 set noswapfile
 
+" config which sides vim panes appear on
+set splitright
+set splitbelow
+
 " --------------------
 "    ocaml plugins
 " --------------------
 
-let g:opam_share_dir = substitute(system('opam config var share'),'\n$','','''')
-let g:ocaml_ocp_indent = g:opam_share_dir . "/ocp-indent/vim"
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+" only run this is opam is installed
 
-let g:ocaml_has_ocpindent = 1
-execute "set rtp+=" . g:ocaml_ocp_indent
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
-set rtp^="/home/akanksha/.opam/system/share/ocp-indent/vim"
+if executable("opam")
+  let g:opam_share_dir = substitute(system('opam config var share'),'\n$','','''')
+  let g:ocaml_ocp_indent = g:opam_share_dir . "/ocp-indent/vim"
+  let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+
+  let g:ocaml_has_ocpindent = 1
+  execute "set rtp+=" . g:ocaml_ocp_indent
+  execute "set rtp+=" . g:opamshare . "/merlin/vim"
+  set rtp^="/home/akanksha/.opam/system/share/ocp-indent/vim"
+endif
 
 " -----------------
 "    vim-plug
 " -----------------
-"
+
+" start of plugin list for vim-plug manager
 call plug#begin('~/.vim/plugged')
 
 " Plugin for removing trailing whitespace
@@ -89,15 +97,14 @@ Plug 'vim-airline/vim-airline'
 " enable themes for airline tabs
 Plug 'vim-airline/vim-airline-themes'
 
-" enable fuzzy file finding
-Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 "   ------------------------------
-" "      ALE configuration
-" " ------------------------------
+"      ALE configuration
+" ------------------------------
+
 " Don't run linters as I type
 let g:ale_lint_on_text_changed = 'never'
-" Don't run linters when opening a file to avoid hangs when opening large OCaml files
+" Don't run linters when opening a file to avoid hangs when opening large files
 let g:ale_lint_on_enter = 0
 
