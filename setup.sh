@@ -9,7 +9,7 @@ sudo yum install -y git tig tmux vim vim-enhanced
 
 # install vim-plug plugin manager
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # having cloned this repo, copy my .vimrc
 cp .vimrc ~/.vimrc
