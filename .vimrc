@@ -7,12 +7,19 @@
 " ---------------
 
 " true colour
-set t_Co=16
+set t_Co=256
+
+" it purdy
+colorscheme OceanicNext
 
 " airline theme for tabline
 let g:airline_theme='jellybeans'
 
 " highlight current line
+" -- note that this depends on colourscheme, as some highlight
+" -- the entire line and others will just underline it
+" -- to edit one that just underlines into a bar,
+"  :highlight CursorLine cterm= ctermbg= ctermfg=
 set cursorline
 
 " number lines
@@ -58,21 +65,21 @@ set noswapfile
 set splitright
 set splitbelow
 
-" --------------------
-"    ocaml plugins
-" --------------------
+" ------------
+"  opam plugs
+" ------------
 
 " only run this is opam is installed
-
+"
 if executable("opam")
   let g:opam_share_dir = substitute(system('opam config var share'),'\n$','','''')
   let g:ocaml_ocp_indent = g:opam_share_dir . "/ocp-indent/vim"
   let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-
+  "
   let g:ocaml_has_ocpindent = 1
   execute "set rtp+=" . g:ocaml_ocp_indent
   execute "set rtp+=" . g:opamshare . "/merlin/vim"
-  set rtp^="/home/akanksha/.opam/system/share/ocp-indent/vim"
+  set rtp^="~/.opam/system/share/ocp-indent/vim"
 endif
 
 " -----------------
@@ -97,9 +104,27 @@ Plug 'vim-airline/vim-airline'
 " enable themes for airline tabs
 Plug 'vim-airline/vim-airline-themes'
 
+" git integration
+Plug 'tpope/vim-fugitive'
+
+" git signs and hunk staging/navigation
+Plug 'airblade/vim-gitgutter'
+
+" better C++ syntax highlighting
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+" Coq support
+" Plug 'trefis/coquille'
+
+" NERDTree for directory exploration
+Plug 'scrooloose/nerdtree'
+
+" colour my awful rust
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
-"   ------------------------------
+" ------------------------------
 "      ALE configuration
 " ------------------------------
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # install the following to a RHEL distro using yum package manager
 ## vim and vim-enhanced for text editing
