@@ -5,7 +5,6 @@
 ## git and tig for version control
 ## tmux for using panes in the terminal
 
-# for RHEL distros:
 # sudo yum update && sudo yum upgrade
 # sudo yum install -y git tig tmux vim vim-enhanced
 
