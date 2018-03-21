@@ -12,8 +12,8 @@ set t_Co=256
 " it purdy
 colorscheme OceanicNext
 
-" airline theme for tabline
-let g:airline_theme='jellybeans'
+" airline theme for tabline, must be in lowercase
+let g:airline_theme='oceanicnext'
 
 " highlight current line
 " -- note that this depends on colourscheme, as some highlight
