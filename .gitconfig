@@ -1,0 +1,11 @@
+[core]
+  editor = vim
+
+[alias]
+  co = checkout
+  br = branch
+  up = pull origin
+  updm = !git checkout master && git pull origin master
+  list = !git branch -vv && git remote -vv
+  append = commit --amend --no-edit
+
