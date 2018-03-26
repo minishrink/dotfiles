@@ -1,0 +1,21 @@
+#!/bin/sh
+
+for d in */;
+do
+  case "$d" in
+    # this is the worst way to exclude repos
+    "alcotest/" ) ;;
+    "_build/"   ) ;;
+    "dotfiles/" ) ;;
+    ".*"        ) ;;
+
+    # all other repos to actually update
+    *           )
+      cd "$d"
+      echo "$d"
+      git fetch origin
+      git updm
+      cd ..
+  esac
+done
+
