@@ -13,7 +13,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # having cloned this repo, copy my .vimrc
 cp .vimrc ~/.vimrc
+cp .gitconfig ~/.gitconfig
 
-# install plugins and set my colourscheme
-vim -c ':w' -c ':so %' -c ':PlugInstall' -c ':colo minimalist' -c ':wq' ~/.vimrc
+# install plugins
+vim -c ':w' -c ':so %' -c ':PlugInstall' ~/.vimrc
 
+# move colourschemes
+mv ~/.vim/plugged/awesome-vim-colorschemes/colors/*.vim ~/.vim/colors
+
+vim -c ':so %' -c ':wq' ~/.vimrc
