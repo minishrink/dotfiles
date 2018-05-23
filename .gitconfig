@@ -4,8 +4,9 @@
 [alias]
   co = checkout
   br = branch
-  up = pull origin
-  updm = !git checkout master && git pull origin master
+  up = !git fetch origin && git pull origin
+  mybr = !git rev-parse --abbrev-ref HEAD
+  updm = !git co master && git up master
   list = !git branch -vv && git remote -vv
   append = commit --amend --no-edit
 
