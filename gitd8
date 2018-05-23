@@ -1,5 +1,25 @@
 #!/bin/sh
 
+# relies on the following git aliases:
+# in ~/.gitconfig under [alias] :
+# mybr = !git rev-parse --abbrev-ref HEAD
+# updm = !git co master && git pull origin master
+# co = checkout
+# up = !git fetch origin && git pull origin
+
+function update_master () {
+  cd "$d"
+  echo "$d"
+  CURRENT_BRANCH=$(git mybr)
+  git stash
+  git updm
+  git co "$CURRENT_BRANCH"
+  git stash pop
+  cd ..
+}
+
+FEATURE_BRANCH="feature/REQ477/master"
+
 for d in */;
 do
   case "$d" in
@@ -7,15 +27,16 @@ do
     "alcotest/" ) ;;
     "_build/"   ) ;;
     "dotfiles/" ) ;;
+    "xen-api/"  )
+        git co "$FEATURE_BRANCH" ;
+        git up "$FEATURE_BRANCH" ;
+        update_master
+                  ;;
     ".*"        ) ;;
 
     # all other repos to actually update
     *           )
-      cd "$d"
-      echo "$d"
-      git fetch origin
-      git updm
-      cd ..
+    update_master
   esac
 done
 
