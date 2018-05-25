@@ -1,12 +1,18 @@
-[core]
-  editor = vim
+# [user]
+# name  =
+# email =
 
 [alias]
   co = checkout
+  list = !git remote -vv && git branch -vv
+  com = commit
   br = branch
+  append = commit --amend --no-edit
+  updm = !git fetch origin && git checkout master && git pull origin master
   up = !git fetch origin && git pull origin
   mybr = !git rev-parse --abbrev-ref HEAD
-  updm = !git co master && git up master
-  list = !git branch -vv && git remote -vv
-  append = commit --amend --no-edit
+  yip = !git up mybr
+
+[core]
+  editor = vim
 
