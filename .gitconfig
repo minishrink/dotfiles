@@ -1,18 +1,29 @@
-# [user]
-# name  =
-# email =
+[core]
+	editor = nvim
+
+[user]
+#	email = whathaveyou@mail.com
+	name = minishrink
+
+[push]
+  default = matching
 
 [alias]
   co = checkout
-  list = !git remote -vv && git branch -vv
-  com = commit
   br = branch
+  com = commit
+  st = status
+  # add a delta to latest commit without updating message
   append = commit --amend --no-edit
+
+  # list git remotes and branches
+  list = !git remote -vv && git branch -vv
+  # update master branch
   updm = !git fetch origin && git checkout master && git pull origin master
-  up = !git fetch origin && git pull origin
+  # git upd BRANCH_NAME : updates BRANCH_NAME
+  upd = !git fetch origin && git pull origin
+  # get string of current branch
   mybr = !git rev-parse --abbrev-ref HEAD
-  yip = !git up mybr
-
-[core]
-  editor = vim
-
+  # git upd CURRENT_BRANCH
+  up = !git upd "$(git mybr)"
+  wipe = reset --hard
