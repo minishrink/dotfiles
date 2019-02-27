@@ -1,11 +1,16 @@
 #!/bin/sh
 
-# install the following to a RHEL distro using yum package manager
+# To be used for quick setup of dev environment containers and VMs
+
+# Run with this command:
+# ./setup [apt, apt-get, yum, etc]
+PKG_MAN=$1
+
 ## vim and vim-enhanced for text editing
 ## git and tig for version control
 ## tmux for using panes in the terminal
-sudo yum update && sudo yum upgrade
-sudo yum install -y git tig tmux vim vim-enhanced
+sudo $PKG_MAN update && sudo $PKG_MAN upgrade
+sudo $PKG_MAN install -y git tig tmux vim vim-enhanced
 
 # install vim-plug plugin manager
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
