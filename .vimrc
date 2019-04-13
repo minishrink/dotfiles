@@ -28,9 +28,6 @@ set number
 " title of file
 set title
 
-" set automatic whitespace stripping
-autocmd BufEnter * EnableStripWhitespaceOnSave
-
 " toggle nested code blocks
 set foldenable
 set foldmethod=indent
@@ -111,7 +108,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " better C++ syntax highlighting
-Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Coq support
 " Plug 'trefis/coquille'
@@ -120,7 +117,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'scrooloose/nerdtree'
 
 " colour my awful rust
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -132,4 +129,11 @@ call plug#end()
 let g:ale_lint_on_text_changed = 'never'
 " Don't run linters when opening a file to avoid hangs when opening large files
 let g:ale_lint_on_enter = 0
+
+" ------------------------------
+"      Whitespace stripping
+" ------------------------------
+
+let g:strip_whitespace_on_save = 1
+let g:strip_whitespace_confirm = 0
 
