@@ -2,8 +2,12 @@
 	editor = nvim
 
 [user]
-#	email = whathaveyou@mail.com
-	name = minishrink
+# email = ""
+# name = ""
+
+# Local gitconfig files with different user names
+# [includeIf "gitdir:~/HERE_LIVES_WORK_CODE/**"]
+#   path = ~/Professional/.gitconfig
 
 [push]
   default = matching
@@ -18,12 +22,8 @@
 
   # list git remotes and branches
   list = !git remote -vv && git branch -vv
-  # update master branch
-  updm = !git fetch origin && git checkout master && git pull origin master
-  # git upd BRANCH_NAME : updates BRANCH_NAME
-  upd = !git fetch origin && git pull origin
   # get string of current branch
   mybr = !git rev-parse --abbrev-ref HEAD
-  # git upd CURRENT_BRANCH
-  up = !git upd "$(git mybr)"
+  # update current branch
+  up   = !git rev-parse --abbrev-ref HEAD | git pull origin
   wipe = reset --hard
