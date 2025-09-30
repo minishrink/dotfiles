@@ -1,5 +1,9 @@
 [core]
-	editor = nvim
+  editor = nvim
+  autocrlf = input
+
+[color]
+  ui = true
 
 [user]
 # email = ""
