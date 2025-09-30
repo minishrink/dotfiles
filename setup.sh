@@ -47,7 +47,8 @@ sudo $PKG_MAN install -y tree git tig tmux vim neovim zsh lynx fonts-powerline
 exit_or_print "Configuring git and (neo)vim"
 cp .gitconfig ~/.gitconfig
 # install vim plugin manager
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 cp .vimrc ~/.config/init.vim
 # Symlink vimrc to neovim config
 ln -siv ~/.vimrc ~/.config/init.vim

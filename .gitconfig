@@ -29,5 +29,5 @@
   # get string of current branch
   mybr = !git rev-parse --abbrev-ref HEAD
   # update current branch
-  up   = !git rev-parse --abbrev-ref HEAD | git pull origin
+  up   = !git pull origin "$(git rev-parse --abbrev-ref HEAD)"
   wipe = reset --hard
