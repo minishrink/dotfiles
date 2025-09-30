@@ -1,2 +1,2 @@
 # dotfiles
-Contains vim config, and script to automate vim setup
+Script to install CLI dev tools while prettifying vim and the shell
